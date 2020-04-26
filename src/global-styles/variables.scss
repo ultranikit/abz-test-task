@@ -1,0 +1,72 @@
+:root {
+  // color
+  --color-primary: #ef5b4c;
+  --color-secondary: #007bff;
+  --color-hover: #d24335;
+
+  // background
+  --color-background-primary: #fff;
+  --color-background-secondary: #f9f9f3;
+
+  /* paddings */
+  // container
+  --mobile-padding: 0 15px;
+  --tablet-padding: 0 30px;
+  --desktop-padding: 0 30px;
+
+  // sections - top/bottom paddings
+  // primary-section
+  --mobile-primary-sp: 76px 0 75px;
+  --tablet-primary-sp: 67px 0;
+  --desktop-primary-sp: 116px 0 115px;
+
+  // secondary-section
+  --mobile-secondary-sp: 76px 0;
+  --tablet-secondary-sp: 112px 0;
+  --desktop-secondary-sp: 116px 0 115px;
+  /* paddings end*/
+
+  /* heading styles */
+  --heading-2-size: 24px;
+  --heading-2-line-height: 29px;
+
+  //mobile
+  --mobile-heading-size: 30px;
+  --mobile-heading-line-height: 34px;
+
+  // tablet
+  --tablet-heading-size: 40px;
+  --tablet-heading-line-height: 44px;
+
+  // desktop
+  --desktop-heading-size: 50px;
+  --desktop-heading-line-height: 54px;
+  /* heading styles end */
+
+  // paragraph styles
+  --paragraph-size: 16px;
+  --paragraph-line-height: 24px;
+
+  // link colors
+  --text-dark: #212529;
+  --text-light: #fff;
+
+  // column width
+  --mobile-column-1-6: calc(100% / 6);
+  --mobile-column-2-6: calc(100% / 6 * 2);
+  --mobile-column-3-6: calc(100% / 6 * 3);
+  --mobile-column-4-6: calc(100% / 6 * 4);
+  --mobile-column-5-6: calc(100% / 6 * 5);
+
+  --desktop-column-1-12: calc(100% / 12);
+  --desktop-column-2-12: calc(100% / 12 * 2);
+  --desktop-column-3-12: calc(100% / 12 * 3);
+  --desktop-column-4-12: calc(100% / 12 * 4);
+  --desktop-column-5-12: calc(100% / 12 * 5);
+  --desktop-column-6-12: calc(100% / 12 * 6);
+  --desktop-column-7-12: calc(100% / 12 * 7);
+  --desktop-column-8-12: calc(100% / 12 * 8);
+  --desktop-column-9-12: calc(100% / 12 * 9);
+  --desktop-column-10-12: calc(100% / 12 * 10);
+  --desktop-column-11-12: calc(100% / 12 * 11);
+}

@@ -1,0 +1,54 @@
+.App {
+  text-align: center;
+}
+
+.container {
+  max-width: 1170px;
+}
+
+// headings
+h1 {
+  text-transform: uppercase;
+  font-size: var(--mobile-heading-size);
+  line-height: var(--mobile-heading-line-height);
+}
+
+h2 {
+  font-size: var(--heading-2-size);
+  line-height: var(--heading-2-line-height);
+}
+
+// paragraph
+p {
+  font-size: var(--paragraph-size);
+  line-height: var(--paragraph-line-height);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: #000;
+}
+
+@media screen and (min-width: 767px) {
+  .container {
+    padding: var(--tablet-padding);
+  }
+  h1 {
+    font-size: var(--tablet-heading-size);
+    line-height: var(--tablet-heading-line-height);
+  }
+}
+
+@media screen and (min-width: 1023px) {
+  .container {
+    padding: var(--desktop-padding);
+  }
+
+  h1 {
+    font-size: var(--desktop-heading-size);
+    line-height: var(--desktop-heading-line-height);
+  }
+}
