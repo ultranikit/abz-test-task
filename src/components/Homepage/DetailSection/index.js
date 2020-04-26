@@ -6,7 +6,7 @@ export const DetailSection = () => {
   const btnOptions = {
     title: "Sign up now",
     className: "detail-section__description-container__button",
-    onClick: "",
+    onClick: (e) => e.preventDefault(),
   };
   return (
     <div className="detail-section">

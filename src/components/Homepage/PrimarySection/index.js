@@ -6,7 +6,7 @@ export const PrimarySection = () => {
   const btnOptions = {
     title: "Sign up now",
     className: "primary-section__button",
-    onClick: "",
+    onClick: (e) => e.preventDefault(),
   };
   return (
     <div className="primary-section">
