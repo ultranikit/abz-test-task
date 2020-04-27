@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import useWindowDimensions from "../../WindowWidth";
-import { getUsers } from "../../../store";
+import { getUsers, setLoadAnimation } from "../../../store";
 import { UsersList } from "../../UsersList";
 import { Button } from "../Button";
 import "./styles.scss";
@@ -9,8 +9,9 @@ import "./styles.scss";
 const mapStateToProps = (state) => ({
   userList: state.users.userList,
   usersPageLoadStatus: state.users.usersPageLoadStatus,
+  loading: state.users.loading,
 });
-const actionCreator = { getUsers };
+const actionCreator = { getUsers, setLoadAnimation };
 
 const mobileUsersPerPage = 3;
 const desktopUsersPerPage = 6;
@@ -21,7 +22,14 @@ export const UsersSection = connect(
   mapStateToProps,
   actionCreator
 )((props) => {
-  const { getUsers, userList, usersPageLoadStatus } = props;
+  const {
+    getUsers,
+    userList,
+    usersPageLoadStatus,
+    loading,
+    setLoadAnimation,
+  } = props;
+
   const { width } = useWindowDimensions();
 
   useEffect(() => {
@@ -42,6 +50,7 @@ export const UsersSection = connect(
   }, [width, getUsers, userList]);
 
   const loadMoreUsers = () => {
+    setLoadAnimation(true);
     const mobPageNumber = userList.length / 3 + 1;
     const desktopPageNumber = userList.length / 6 + 1;
     const mobileList = `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${mobPageNumber}&count=${mobileUsersPerPage}`;
@@ -73,11 +82,14 @@ export const UsersSection = connect(
         <div className="users-section__user-list-flex-container">
           <UsersList users={userList} />
         </div>
-        {usersPageLoadStatus ? (
-          <Button options={btnOptions} />
-        ) : (
-          <p>All happy users loaded :D</p>
-        )}
+        {loading && <div className="loader"></div>}
+        {!loading ? (
+          usersPageLoadStatus ? (
+            <Button options={btnOptions} />
+          ) : (
+            <p>All happy users loaded :D</p>
+          )
+        ) : null}
       </div>
     </div>
   );

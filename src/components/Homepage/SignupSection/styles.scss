@@ -1,0 +1,12 @@
+.signup-section {
+  padding: var(--mobile-secondary-sp);
+
+  &__title {
+    text-transform: unset;
+  }
+
+  &__subtitle {
+    margin: 15px auto 0;
+    width: var(--mobile-column-5-6);
+  }
+}

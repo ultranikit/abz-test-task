@@ -1,6 +1,7 @@
 @import "reset.scss";
 @import "./global-styles/variables";
 @import "./global-styles/transitions";
+@import "./global-styles/loader";
 
 @font-face {
   font-family: "Open Sans";
@@ -8,6 +9,7 @@
   font-weight: 400;
   src: local("Open Sans"),
     url("./fonts/OpenSans-Regular.ttf") format("truetype");
+  font-display: swap;
 }
 
 body {

@@ -1,4 +1,6 @@
 import React from "react";
+import Img from "react-cool-img";
+
 import "./styles.scss";
 
 export const UserCard = ({ user }) => {
@@ -6,9 +8,11 @@ export const UserCard = ({ user }) => {
   return (
     <div className="user-card">
       <div className="user-card__photo-container">
-        <img
+        <Img
           className="user-card__photo-container__image"
+          placeholder="/user-card/photo-cover.png"
           src={photo}
+          error="/user-card/photo-cover.png"
           alt={id}
         />
       </div>

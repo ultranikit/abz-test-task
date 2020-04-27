@@ -6,6 +6,11 @@
   max-width: 1170px;
 }
 
+button {
+  font-size: var(--paragraph-size);
+  line-height: var(--paragraph-line-height);
+}
+
 // headings
 h1 {
   text-transform: uppercase;
