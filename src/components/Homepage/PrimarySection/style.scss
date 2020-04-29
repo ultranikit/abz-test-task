@@ -13,8 +13,6 @@
   }
 
   &__button {
-    padding: 10px 58px 7px;
-    color: var(--text-light);
     border-radius: 4px;
     background-color: var(--color-primary);
     &:hover {
@@ -22,6 +20,8 @@
     }
 
     a {
+      display: block;
+      padding: 10px 58px 7px;
       color: var(--text-light);
     }
   }

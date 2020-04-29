@@ -5,7 +5,7 @@
   margin: 0 auto;
 
   ::placeholder {
-    font-size: 16px;
+    font-size: 13px;
     color: #b2b9c0;
   }
 
@@ -210,6 +210,11 @@
 @media screen and (min-width: 768px) {
   .signup-form-container {
     width: var(--mobile-column-4-6);
+
+    ::placeholder {
+      font-size: 16px;
+      color: #b2b9c0;
+    }
   }
 }
 
