@@ -14,23 +14,27 @@ export const MobileNavbar = (props) => {
       <div className="mobile-navigation__logo">
         <ItemLink
           onClick={handleLinkClick}
-          title={<img src="/header/logo.svg" alt="" />}
-          link={"/"}
+          title={<img src="/header/logo.svg" alt="logo" />}
+          link={"//home"}
         />
       </div>
       <ul className="mobile-navigation__menu">
         <li className="mobile-navigation__menu__item">
-          <ItemLink title={"About me"} link={"about"} />
+          <ItemLink
+            onClick={handleLinkClick}
+            title={"About me"}
+            link={"signup"}
+          />
         </li>
         <li className="mobile-navigation__menu__item">
           <ItemLink
             onClick={handleLinkClick}
             title={"Relationships"}
-            link={"relationships"}
+            link={"signup"}
           />
         </li>
         <li className="mobile-navigation__menu__item">
-          <ItemLink title={"Users"} link={"users"} />
+          <ItemLink onClick={handleLinkClick} title={"Users"} link={"signup"} />
         </li>
         <li className="mobile-navigation__menu__item">
           <ItemLink
@@ -43,7 +47,7 @@ export const MobileNavbar = (props) => {
           <ItemLink
             onClick={handleLinkClick}
             title={"Terms and Conditions"}
-            link={"terms"}
+            link={"signup"}
           />
         </li>
       </ul>
@@ -53,53 +57,73 @@ export const MobileNavbar = (props) => {
           <ItemLink
             onClick={handleLinkClick}
             title={"How it works"}
-            link={"how"}
+            link={"signup"}
           />
         </li>
         <li className="mobile-navigation__menu__item">
           <ItemLink
             onClick={handleLinkClick}
             title={"Partnership"}
-            link={"partnership"}
+            link={"signup"}
           />
         </li>
         <li className="mobile-navigation__menu__item">
-          <ItemLink onClick={handleLinkClick} title={"Help"} link={"help"} />
+          <ItemLink onClick={handleLinkClick} title={"Help"} link={"signup"} />
         </li>
         <li className="mobile-navigation__menu__item">
           <ItemLink
             onClick={handleLinkClick}
             title={"Leave testimonial"}
-            link={"testimonail"}
+            link={"signup"}
           />
         </li>
         <li className="mobile-navigation__menu__item">
           <ItemLink
             onClick={handleLinkClick}
             title={"Contact us"}
-            link={"contacts"}
+            link={"signup"}
           />
         </li>
       </ul>
 
       <ul className="mobile-navigation__menu">
         <li className="mobile-navigation__menu__item">
-          <ItemLink title={"Articles"} link={"articles"} />
+          <ItemLink
+            onClick={handleLinkClick}
+            title={"Articles"}
+            link={"signup"}
+          />
         </li>
         <li className="mobile-navigation__menu__item">
-          <ItemLink title={"Our news"} link={"news"} />
+          <ItemLink
+            onClick={handleLinkClick}
+            title={"Our news"}
+            link={"signup"}
+          />
         </li>
         <li className="mobile-navigation__menu__item">
-          <ItemLink title={"Help"} link={"help"} />
+          <ItemLink onClick={handleLinkClick} title={"Help"} link={"signup"} />
         </li>
         <li className="mobile-navigation__menu__item">
-          <ItemLink title={"Testimonials"} link={"testimonials"} />
+          <ItemLink
+            onClick={handleLinkClick}
+            title={"Testimonials"}
+            link={"signup"}
+          />
         </li>
         <li className="mobile-navigation__menu__item">
-          <ItemLink title={"Licence"} link={"licence"} />
+          <ItemLink
+            onClick={handleLinkClick}
+            title={"Licence"}
+            link={"signup"}
+          />
         </li>
         <li className="mobile-navigation__menu__item">
-          <ItemLink title={"Private Policy"} link={"policy"} />
+          <ItemLink
+            onClick={handleLinkClick}
+            title={"Private Policy"}
+            link={"signup"}
+          />
         </li>
       </ul>
     </nav>

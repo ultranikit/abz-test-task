@@ -4,7 +4,7 @@ import { MobileNavbarToggleButton } from "../MobileNavbar/MobileNavbarToggleButt
 import { MobileNavbar, Backdrop } from "../";
 import "./style.scss";
 
-export const ToolBar = (props) => {
+export const ToolBar = () => {
   const [mobNav, setMobNav] = useState(false);
   const menuClickHandle = () => setMobNav(!mobNav);
   const backdropClickHandle = () => setMobNav(false);
@@ -20,23 +20,23 @@ export const ToolBar = (props) => {
             <div className="toolbar__logo">
               <ItemLink
                 title={<img src="/header/logo.svg" alt="logo" />}
-                link={"/"}
+                link={"home"}
               />
             </div>
             <div className="toolbar__navigation-items">
               <ul className="toolbar__navigation-items__menu">
                 <li className="toolbar__navigation-items__menu__item">
-                  <ItemLink title="About me" link={"about"} />
+                  <ItemLink title="About me" link={"signup"} />
                 </li>
                 <li className="toolbar__navigation-items__menu__item">
-                  <ItemLink title="Requirements" link={"requirements"} />
+                  <ItemLink title="Requirements" link={"signup"} />
                 </li>
 
                 <li className="toolbar__navigation-items__menu__item">
-                  <ItemLink title="Relationships" link={"relationships"} />
+                  <ItemLink title="Relationships" link={"signup"} />
                 </li>
                 <li className="toolbar__navigation-items__menu__item">
-                  <ItemLink title="Users" link={"users"} />
+                  <ItemLink title="Users" link={"signup"} />
                 </li>
                 <li className="toolbar__navigation-items__menu__item">
                   <ItemLink title="Sign Up" link={"signup"} />

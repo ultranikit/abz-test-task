@@ -1,16 +1,18 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-
+import { Link } from "react-scroll";
 const ItemLink = ({ title, link, onClick }) => {
   return (
-    <NavLink
+    <Link
       to={link}
+      spy={true}
       className="toolbar__navigation-items__menu__item-link"
-      activeClassName="toolbar__navigation-items__menu__item-link--active"
+      activeClass="toolbar__navigation-items__menu__item-link--active"
+      smooth={true}
+      duration={1000}
       onClick={onClick}
     >
       {title}
-    </NavLink>
+    </Link>
   );
 };
 

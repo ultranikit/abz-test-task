@@ -10,7 +10,7 @@ export const PrimarySection = () => {
     onClick: (e) => e.preventDefault(),
   };
   return (
-    <div className="primary-section">
+    <div id="home" className="primary-section">
       <div className="container">
         <h1 className="primary-section__title">Test assignment</h1>
         <h1 className="primary-section__title">for Frontend</h1>
