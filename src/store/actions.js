@@ -35,6 +35,10 @@ export const setUsersList = (payload) => ({
   payload,
 });
 
+export const clearUsersList = () => ({
+  type: action_type.CLEAR_USERS_LIST,
+});
+
 export const getUsersPositions = () => ({
   type: action_type.GET_USERS_POSITIONS,
 });
@@ -53,6 +57,11 @@ export const setLoadAnimation = (payload) => ({
   payload,
 });
 
+export const setModalWindowOptions = (payload) => ({
+  type: action_type.MODAL_WINDOW_OPTIONS,
+  payload,
+});
+
 function* getSignupTokenSaga() {
   const urlToken =
     "https://frontend-test-assignment-api.abz.agency/api/v1/token";
@@ -62,7 +71,6 @@ function* getSignupTokenSaga() {
       const response = yield axios.get(urlToken);
       if (response.status === 200) {
         const token = response.data.token;
-        console.log(token);
         yield saveToStorage("token", JSON.stringify(token));
         yield put(setSignupToken(token));
       }
@@ -76,24 +84,31 @@ function* signupUserSaga() {
   const url = "https://frontend-test-assignment-api.abz.agency/api/v1/users";
   const basicUsers =
     "https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=6";
-  const token = JSON.parse(loadFromStorage("token"));
-  const options = {
-    headers: {
-      Token: token,
-      "Content-Type": "multipart/form-data",
-    },
-  };
+
   while (true) {
     const { payload } = yield take(action_type.SET_SIGNUP_USER_DATA);
+    const token = yield JSON.parse(loadFromStorage("token"));
+
+    const options = {
+      headers: {
+        Token: token,
+        "Content-Type": "multipart/form-data",
+      },
+    };
 
     try {
       const response = yield axios.post(url, payload, options);
-      if (response.status === 200) {
-        yield all([put(getUsers(basicUsers))]);
+      if (response.status === 201) {
+        yield all([
+          put(clearUsersList()),
+          put(getUsers(basicUsers)),
+          put(setPageLoadStatus(true)),
+          put(setModalWindowOptions(response)),
+        ]);
       }
     } catch (error) {
       if (error.response) {
-        console.log(error.response);
+        yield put(setModalWindowOptions(error.response));
       }
     }
   }

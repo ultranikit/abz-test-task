@@ -13,7 +13,6 @@
   }
 
   &__button {
-    margin-top: 40px;
     padding: 10px 58px 7px;
     color: var(--text-light);
     border-radius: 4px;
@@ -26,6 +25,7 @@
 
 @media screen and (max-width: 767px) {
   .primary-section {
+    // let cut description string make 3 lines text and "..." after cut
     &__description {
       padding: var(--mobile-padding);
       overflow: hidden;
@@ -36,7 +36,7 @@
   }
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 768px) {
   .primary-section {
     text-align: left;
     padding: var(--tablet-primary-sp);
@@ -51,12 +51,18 @@
   }
 }
 
-@media screen and (min-width: 1023px) {
+@media screen and (min-width: 1024px) {
   .primary-section {
     padding: var(--desktop-primary-sp);
 
+    .container {
+      margin: unset;
+      width: var(--desktop-column-7-12);
+    }
+
     &__description {
-      margin: 39px 0;
+      width: var(--desktop-column-11-12);
+      margin: 29px 0;
     }
   }
 }

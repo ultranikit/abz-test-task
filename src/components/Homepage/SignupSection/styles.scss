@@ -7,6 +7,14 @@
 
   &__subtitle {
     margin: 15px auto 0;
-    width: var(--mobile-column-5-6);
+    width: var(--mobile-column-4-6);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .signup-section {
+    .container {
+      width: var(--desktop-column-7-12);
+    }
   }
 }

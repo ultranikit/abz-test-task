@@ -3,15 +3,17 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 import "./App.scss";
-import { Homepage } from "./components";
+import { Homepage, ToolBar } from "./components";
 
 function App() {
   return (
     <Provider store={store}>
       <Router>
         <div className="App">
+          <ToolBar />
+
           <Switch>
-            <Route path="/" component={Homepage} />
+            <Route exact path="/" component={Homepage} />
           </Switch>
         </div>
       </Router>

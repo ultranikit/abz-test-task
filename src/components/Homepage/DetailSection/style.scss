@@ -1,13 +1,16 @@
+// second section
 .detail-section {
   padding: var(--mobile-secondary-sp);
   background: var(--color-background-primary);
 
+  // make flex container for image and desctiption to change direction(row/column) mob/tablet/desktop
   &__flex-container {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
+  // all titles default uppercase so unset it
   &__title {
     text-transform: unset;
   }
@@ -19,7 +22,7 @@
       width: 100%;
     }
   }
-
+  // description container contains subtitle, description, button
   &__description-container {
     &__subtitle {
       padding-left: 10px;
@@ -42,14 +45,14 @@
   }
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 768px) {
   .detail-section {
     padding: var(--tablet-secondary-sp);
 
     &__title {
       padding-left: 24px;
     }
-
+    // for table/desktop make direction row
     &__flex-container {
       flex-direction: row;
       align-items: unset;
@@ -77,6 +80,21 @@
       &__button {
         margin-left: 10px;
       }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .detail-section {
+    padding: var(--desktop-secondary-sp);
+
+    &__image-container {
+      width: var(--desktop-column-5-12);
+    }
+
+    &__description-container {
+      width: var(--desktop-column-7-12);
+      margin-left: 27px;
     }
   }
 }

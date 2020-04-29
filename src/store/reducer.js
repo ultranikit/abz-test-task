@@ -7,6 +7,7 @@ const initialState = {
   usersPageLoadStatus: true,
   loading: false,
   usersPositions: [],
+  modalWindowOptions: false,
 };
 
 function usersReducer(state = initialState, action) {
@@ -19,6 +20,11 @@ function usersReducer(state = initialState, action) {
         signupToken: payload,
       };
 
+    case action_type.CLEAR_USERS_LIST:
+      return {
+        ...state,
+        userList: [],
+      };
     case action_type.SET_USERS_LIST:
       return {
         ...state,
@@ -36,10 +42,17 @@ function usersReducer(state = initialState, action) {
         ...state,
         usersPageLoadStatus: payload,
       };
+
     case action_type.SET_LOADING:
       return {
         ...state,
         loading: payload,
+      };
+
+    case action_type.MODAL_WINDOW_OPTIONS:
+      return {
+        ...state,
+        modalWindowOptions: payload,
       };
 
     default:

@@ -16,10 +16,22 @@ export const UserCard = ({ user }) => {
           alt={id}
         />
       </div>
-      <h2 className="user-card__name">{name}</h2>
-      <p className="user-card__position">{position}</p>
-      <p className="user-card__email">{email}</p>
-      <p className="user-card__phone">{phone}</p>
+      <div className="user-card__tooltip">
+        <h2 className="user-card__name user-card__tooltip">{name}</h2>
+        <span className="tooltiptext">{name}</span>
+      </div>
+      <div className="user-card__tooltip">
+        <p className="user-card__position user-card__tooltip">{position}</p>
+        <span className="tooltiptext">{position}</span>
+      </div>
+      <div className="user-card__tooltip">
+        <p className="user-card__email user-card__tooltip">{email}</p>
+        <span className="tooltiptext">{email}</span>
+      </div>
+      <div className="user-card__tooltip">
+        <p className="user-card__phone">{phone}</p>
+        <span className="tooltiptext">{phone}</span>
+      </div>
     </div>
   );
 };

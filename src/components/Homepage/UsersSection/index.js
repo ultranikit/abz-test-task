@@ -3,9 +3,12 @@ import { connect } from "react-redux";
 import useWindowDimensions from "../../WindowWidth";
 import { getUsers, setLoadAnimation } from "../../../store";
 import { UsersList } from "../../UsersList";
-import { Button } from "../Button";
+import { Button } from "../../Button";
 import "./styles.scss";
 
+// userList - data from request
+// usersPageLoadStatus - flag for show button or not
+// loading - flag for loading animation when we clicking show more
 const mapStateToProps = (state) => ({
   userList: state.users.userList,
   usersPageLoadStatus: state.users.usersPageLoadStatus,
@@ -13,6 +16,7 @@ const mapStateToProps = (state) => ({
 });
 const actionCreator = { getUsers, setLoadAnimation };
 
+// default settings on start
 const mobileUsersPerPage = 3;
 const desktopUsersPerPage = 6;
 const mobileStartList = `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=${mobileUsersPerPage}`;
@@ -30,6 +34,11 @@ export const UsersSection = connect(
     setLoadAnimation,
   } = props;
 
+  // mockup mobile has 3 users in section and desktop 6 users
+  /* I try to separate logic mob/desktop 
+  when we have mob device we will recive 3 users but when we tablet/desktop we'll get 6 users
+  just for the first request
+  */
   const { width } = useWindowDimensions();
 
   useEffect(() => {
@@ -49,6 +58,12 @@ export const UsersSection = connect(
     getUsersOnLoad();
   }, [width, getUsers, userList]);
 
+  // load more users with button
+  /* when we changing width on dragging screen like from 1000px to 500px
+  we weill send different requests for each screen
+  for mobile it weill be 3 users per 1 page
+  for tablet/desktop 6 users per 1 page
+  So wee need make some math to make next request clear and not repeat users wich was recived */
   const loadMoreUsers = () => {
     setLoadAnimation(true);
     const mobPageNumber = userList.length / 3 + 1;
@@ -79,16 +94,14 @@ export const UsersSection = connect(
         <p className="users-section__subtitle">
           Attention! Sorting users by registration date
         </p>
-        <div className="users-section__user-list-flex-container">
+        <div className="users-section__user-list-grid-container">
           <UsersList users={userList} />
         </div>
         {loading && <div className="loader"></div>}
         {!loading ? (
           usersPageLoadStatus ? (
             <Button options={btnOptions} />
-          ) : (
-            <p>All happy users loaded :D</p>
-          )
+          ) : null
         ) : null}
       </div>
     </div>

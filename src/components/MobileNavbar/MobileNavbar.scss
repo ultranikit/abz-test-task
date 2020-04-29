@@ -1,0 +1,37 @@
+// mobile navigation by default should be behind screen and showing when we click menu button
+// for hide it using transform translateX
+.mobile-navigation {
+  height: 100%;
+  position: fixed;
+  overflow-y: scroll;
+  top: 0;
+  left: 0;
+  width: 70%;
+  max-width: 400px;
+  text-align: left;
+  background: var(--color-background-primary);
+  z-index: 200;
+  transform: translateX(-100%);
+  transition: 0.6s all;
+
+  &__logo {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: var(--mobile-padding);
+  }
+  // menu (ul) has paddings nad border-top like on mockup
+  &__menu {
+    padding-top: 20px;
+    border-top: 1px solid #e1e1e1;
+    // each menu-item (li) has margin bottom
+    &__item {
+      margin-bottom: 27px;
+      padding: var(--mobile-padding);
+    }
+  }
+}
+
+.mobile-navigation.mobile-navigation-open {
+  transform: translateX(0);
+}

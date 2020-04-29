@@ -8,9 +8,10 @@
   &__subtitle {
     margin: 5px;
   }
-
-  &__user-list-flex-container {
+  // for user-list using grid / mob - 1 clomn / tablet-desktop - 3 columns
+  &__user-list-grid-container {
     margin-top: 38px;
+
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
@@ -35,9 +36,15 @@
       margin-top: 23px;
     }
 
-    &__user-list-flex-container {
+    &__user-list-grid-container {
       margin-top: 75px;
       grid-template-columns: repeat(3, 1fr);
     }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .users-section {
+    padding: var(--desktop-secondary-sp);
   }
 }

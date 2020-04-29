@@ -15,11 +15,45 @@
     }
   }
 
+  &__tooltip {
+    position: relative;
+    cursor: pointer;
+  }
+  &__tooltip .tooltiptext {
+    display: none;
+    font-size: 14px;
+    width: 160px;
+    word-break: break-word;
+    visibility: hidden;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: -50px;
+    left: 50%;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  &__tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
   &__email,
   &__name,
   &__position {
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  &__position,
+  &__email,
+  &__phone {
+    color: #4c4b4b;
   }
 
   &__name {
@@ -42,5 +76,13 @@
 @media screen and (min-width: 768px) {
   .user-card {
     margin: 0 22px 41px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .user-card {
+    &__tooltip .tooltiptext {
+      display: block;
+    }
   }
 }

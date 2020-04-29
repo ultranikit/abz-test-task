@@ -11,7 +11,7 @@ const emailMinLength = 2;
 const emailMaxLength = 100;
 
 // photo constant
-const MaxPhotoSize = 5242880;
+const MaxPhotoSize = 5000000;
 const FloorSize = Math.floor(MaxPhotoSize / 10 ** 6);
 
 const validate = (values) => {
@@ -43,8 +43,14 @@ const validate = (values) => {
     errors.email = "Invalid email address";
   }
 
-  // position validation
+  if (!values.phone) {
+    errors.phone = "Required";
+  } else if (!/^[+]{1}380([0-9]{9})$/i.test(values.phone)) {
+    errors.phone = "Write your phone incorrect";
+  }
+
   if (!values.position_id) {
+    // position validation
     errors.position_id = "Choose your position";
   }
 
@@ -58,6 +64,8 @@ const validate = (values) => {
     values.photo.type !== "image/jpeg"
   ) {
     errors.photo = "Failed photo type choose JPG/JPEG format";
+  } else if (values.photo.width < 70 || values.photo.height < 70) {
+    errors.photo = "Photo should be at least 70x70 or more";
   }
 
   return errors;
@@ -66,7 +74,10 @@ const validate = (values) => {
 const RadioButtons = ({ formik, radioList }) => {
   return (
     <Fragment>
-      <label className="signup-form-container__label" htmlFor="position_id">
+      <label
+        className="signup-form-container__label signup-form-container__additional-margin"
+        htmlFor="position_id"
+      >
         Select your position
       </label>
       {radioList &&
@@ -87,7 +98,7 @@ const RadioButtons = ({ formik, radioList }) => {
           </label>
         ))}
 
-      {formik.errors.position ? (
+      {formik.errors.position_id ? (
         <div className="signup-form-container__error-message">
           {formik.errors.position_id}
         </div>
@@ -103,7 +114,8 @@ export const SignupForm = ({ positions, submitData }) => {
     initialValues: {
       name: "",
       email: "",
-      position_id: 0,
+      phone: "",
+      position_id: "1",
       photo: "",
     },
     validate,
@@ -118,10 +130,24 @@ export const SignupForm = ({ positions, submitData }) => {
     },
   });
 
-  const checkFileName = (file) => {
+  const checkFileDetails = (file) => {
     if (file === undefined) {
       return formik.setFieldValue("photo", "");
     }
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const photo = new Image();
+      photo.src = event.target.result;
+
+      photo.onload = function () {
+        const width = this.width;
+        const height = this.height;
+        file.height = height;
+        file.width = width;
+      };
+    };
+    reader.readAsDataURL(file);
+    return formik.setFieldValue("photo", file);
   };
 
   return (
@@ -166,6 +192,30 @@ export const SignupForm = ({ positions, submitData }) => {
           </div>
         ) : null}
 
+        <label className="signup-form-container__label" htmlFor="phone">
+          Phone number
+        </label>
+        <input
+          className={`signup-form-container__input ${
+            formik.errors.phone && "signup-form-container__error-input"
+          }`}
+          id="phone"
+          placeholder="+380 XX XXX XX XX"
+          name="phone"
+          type="text"
+          onChange={formik.handleChange}
+          value={formik.values.phone}
+        />
+        {formik.errors.phone ? (
+          <div className="signup-form-container__error-message">
+            {formik.errors.phone}
+          </div>
+        ) : (
+          <div className="signup-form-container__submessage-input">
+            Enter phone number in open format
+          </div>
+        )}
+
         <RadioButtons formik={formik} radioList={positions} />
 
         <label
@@ -181,10 +231,7 @@ export const SignupForm = ({ positions, submitData }) => {
             name="photo"
             type="file"
             accept="image/jpg,image/jpeg"
-            onChange={(event) => {
-              formik.setFieldValue("photo", event.currentTarget.files[0]);
-              checkFileName(event.currentTarget.files[0]);
-            }}
+            onChange={(event) => checkFileDetails(event.currentTarget.files[0])}
           />
           <span
             className={`file-custom ${
