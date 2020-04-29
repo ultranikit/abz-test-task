@@ -21,8 +21,8 @@
   }
   &__tooltip .tooltiptext {
     display: none;
-    font-size: 14px;
-    width: 160px;
+    font-size: 12px;
+    width: 205px;
     word-break: break-word;
     visibility: hidden;
     background-color: #555;
@@ -33,7 +33,7 @@
     position: absolute;
     z-index: 1;
     bottom: -50px;
-    left: 50%;
+    left: 0;
     opacity: 0;
     transition: opacity 0.3s;
   }
