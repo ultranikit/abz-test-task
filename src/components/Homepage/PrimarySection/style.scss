@@ -20,6 +20,10 @@
     &:hover {
       background-color: var(--color-hover);
     }
+
+    a {
+      color: var(--text-light);
+    }
   }
 }
 

@@ -1,10 +1,11 @@
 import React from "react";
 import { Button } from "../../Button";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 import "./style.scss";
 
 export const DetailSection = () => {
   const btnOptions = {
-    title: "Sign up now",
+    title: <AnchorLink href="#signup">Sign up now</AnchorLink>,
     className: "detail-section__description-container__button",
     onClick: (e) => e.preventDefault(),
   };

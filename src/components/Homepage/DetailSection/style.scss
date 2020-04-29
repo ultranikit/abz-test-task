@@ -41,6 +41,10 @@
       &:hover {
         color: var(--color-hover);
       }
+
+      a {
+        color: var(--color-primary);
+      }
     }
   }
 }

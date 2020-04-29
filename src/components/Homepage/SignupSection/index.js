@@ -104,7 +104,7 @@ export const SignupSection = connect(
   }, [getUsersPositions, getSignupToken]);
   return (
     <Fragment>
-      <div className="signup-section">
+      <div id={"signup"} className="signup-section">
         <div className="container">
           <h1 className="signup-section__title">Register to get a work</h1>
           <p className="signup-section__subtitle">

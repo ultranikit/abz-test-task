@@ -1,10 +1,11 @@
 import React from "react";
 import { Button } from "../../Button";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 import "./style.scss";
 
 export const PrimarySection = () => {
   const btnOptions = {
-    title: "Sign up now",
+    title: <AnchorLink href="#signup">Sign up now</AnchorLink>,
     className: "primary-section__button",
     onClick: (e) => e.preventDefault(),
   };
