@@ -19,7 +19,7 @@ export const ToolBar = (props) => {
           <nav className="toolbar__navigation">
             <div className="toolbar__logo">
               <ItemLink
-                title={<img src="/header/logo.svg" alt="" />}
+                title={<img src="/header/logo.svg" alt="logo" />}
                 link={"/"}
               />
             </div>

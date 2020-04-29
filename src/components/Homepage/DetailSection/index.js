@@ -16,7 +16,7 @@ export const DetailSection = () => {
 
         <div className="detail-section__flex-container">
           <div className="detail-section__image-container">
-            <img src="/detail-section/detail-section-img.png" alt="work" />
+            <img src="/detail-section/detail-section-img.svg" alt="work" />
           </div>
           <div className="detail-section__description-container">
             <h2 className="detail-section__description-container__subtitle">
