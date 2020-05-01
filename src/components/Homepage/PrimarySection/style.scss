@@ -45,7 +45,7 @@
     text-align: left;
     padding: var(--tablet-primary-sp);
 
-    .container {
+    &__content {
       width: var(--mobile-column-4-6);
     }
 
@@ -59,7 +59,7 @@
   .primary-section {
     padding: var(--desktop-primary-sp);
 
-    .container {
+    &__content {
       margin: unset;
       width: var(--desktop-column-7-12);
     }
