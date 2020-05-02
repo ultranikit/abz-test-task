@@ -14,9 +14,10 @@ export const PrimarySection = () => {
       <div className="container">
         <div className="primary-section__subcontainer">
           <div className="primary-section__content">
-            <h1 className="primary-section__title">Test assignment</h1>
-            <h1 className="primary-section__title">for Frontend</h1>
-            <h1 className="primary-section__title">Developer position</h1>
+            <h1 className="primary-section__title">
+              Test assignment for Frontend Developer position
+            </h1>
+
             <p className="primary-section__description">
               We kindly remind you that your test assignment should be submitted
               as a link to github/bitbucket repository. Please be patient, we
